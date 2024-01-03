@@ -5,6 +5,8 @@ import axios from "axios";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
 import sideImg from "../../assets/image/landing-page-desktop.png";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoading } from "../../features/detail/detailSlice";
 
 const SignUp = (props) => {
   const [form, setForm] = useState({
@@ -30,12 +32,16 @@ const SignUp = (props) => {
   };
 
   // console.log(form);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.detail);
   const navigate = useNavigate();
   const handleSubmit = async () => {
+    dispatch(isLoading());
     // const token = localStorage.getItem("access_token");
     try {
       const res = await requestAPI.register(form);
       // const token = localStorage.setItem("acces_token", res.data.access_token);
+      dispatch(isLoading());
       alert("Register Berhasil Berhasil");
       navigate(-1);
     } catch (error) {
@@ -50,6 +56,7 @@ const SignUp = (props) => {
       } else if (form.password.length) {
         alert(error.response.data.error.message);
       }
+      dispatch(isLoading());
     }
   };
 
@@ -99,7 +106,12 @@ const SignUp = (props) => {
                   placeholder="6+ Karakter"
                 />
               </div>
-              <button onClick={handleSubmit}> Sign Up</button>
+              <button
+                onClick={handleSubmit}
+                className={loading ? "disabled" : null}>
+                {" "}
+                Sign Up
+              </button>
               <h6 className="text-center">
                 Don't have an account?{" "}
                 <span onClick={handleSignIn}>Sign in here</span>
@@ -108,7 +120,9 @@ const SignUp = (props) => {
             <div className="bg col-xl-6">
               <h1>Binar Car Rental</h1>
               <div className="side-img">
-                <img src={sideImg} alt="" />
+                <div className="img">
+                  <img src={sideImg} alt="" />
+                </div>
               </div>
             </div>
           </div>

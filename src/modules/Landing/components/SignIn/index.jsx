@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
 import sideImg from "../../assets/image/landing-page-desktop.png";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoading } from "../../features/detail/detailSlice";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -27,9 +29,13 @@ const SignIn = (props) => {
   };
 
   // console.log(form);
+
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.detail);
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    dispatch(isLoading());
     const token = localStorage.getItem("access_token");
 
     const config = () => {
@@ -41,7 +47,8 @@ const SignIn = (props) => {
     try {
       const res = await requestAPI.authLogin(form, config);
       localStorage.setItem("access_token", res.data.access_token);
-      console.log(res);
+      // console.log(res);
+      dispatch(isLoading());
       alert("Login Berhasil");
       navigate(-1);
     } catch (error) {
@@ -55,6 +62,7 @@ const SignIn = (props) => {
         alert(err.response.data.message);
       }
       // console.log(err.response);
+      dispatch(isLoading());
     }
   };
 
@@ -98,7 +106,12 @@ const SignIn = (props) => {
                 />
               </div>
               <div>
-                <button onClick={handleSubmit}> Sign in</button>
+                <button
+                  onClick={handleSubmit}
+                  className={loading ? "disabled" : null}>
+                  {" "}
+                  Sign in
+                </button>
               </div>
               <h6 className="text-center">
                 Don't have an account?
@@ -108,7 +121,9 @@ const SignIn = (props) => {
             <div className="bg col-6">
               <h1>Binar Car Rental</h1>
               <div className="side-img">
-                <img src={sideImg} alt="" />
+                <div className="img">
+                  <img src={sideImg} alt="" />
+                </div>
               </div>
             </div>
           </div>

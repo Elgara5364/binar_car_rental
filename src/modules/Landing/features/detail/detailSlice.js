@@ -14,6 +14,9 @@ export const detailSlice = createSlice({
   name: "detail",
   initialState,
   reducers: {
+    isLoading: (state) => {
+      state.loading = !state.loading;
+    },
     disableButton: (state) => {
       state.is_disabled = false;
     },
@@ -44,6 +47,7 @@ export const {
   saveDateRent,
   resetDateRent,
   sendOrderId,
+  isLoading,
 } = detailSlice.actions;
 
 export default detailSlice.reducer;
