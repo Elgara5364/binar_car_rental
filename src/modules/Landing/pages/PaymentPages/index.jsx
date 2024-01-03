@@ -4,12 +4,14 @@ import Navigation from "../../components/Navigation";
 // import PayMain from "../../components/PayMain/paymain";
 import Footer from "../../components/Footer";
 import EmptyHero from "../../components/EmptyHero";
+import PaymentStep from "../../components/PaymentStep";
 
 const PaymentPages = () => {
   return (
     <div>
       <Navigation />
       <EmptyHero />
+      <PaymentStep />
       <Footer />
     </div>
   );

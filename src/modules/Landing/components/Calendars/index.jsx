@@ -24,6 +24,7 @@ const Calendars = () => {
   const options2 = { year: "numeric", month: "numeric", day: "numeric" };
 
   const { is_disabled } = useSelector((state) => state.detail);
+  const state = useSelector((state) => state.detail);
   const [pickDate, setPickDate] = useState(false);
   // console.log(pickDate);
 
@@ -80,7 +81,11 @@ const Calendars = () => {
       <div onClick={handleOpenCloseCalendar}>
         <ReactDatePicker
           formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
-          placeholderText="Pilih tanggal awal dan akhir sewa"
+          placeholderText={
+            !state.end_date
+              ? "Pilih tanggal awal dan akhir sewa"
+              : `${state.start_date} - ${state.end_date}`
+          }
           selectsRange={true}
           startDate={startDate}
           endDate={endDate}
@@ -99,7 +104,7 @@ const Calendars = () => {
         </ReactDatePicker>
       </div>
       <FontAwesomeIcon
-        className={is_disabled ? "showClose" : "hideClose"}
+        className={is_disabled ? "show-close" : "hide-close"}
         onClick={handleReset}
         icon={faXmark}
       />

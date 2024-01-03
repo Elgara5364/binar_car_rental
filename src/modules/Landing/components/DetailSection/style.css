@@ -146,16 +146,6 @@ input::placeholder {
   background: rgba(53, 176, 167, 0.2);
 }
 
-.showClose {
-  position: absolute;
-  top: 10px;
-  right: 115px;
-}
-
-.hideClose {
-  display: none;
-}
-
 @media (max-width: 576px) {
   .detail-wrapper {
     display: flex;

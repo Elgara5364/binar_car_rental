@@ -1,15 +1,12 @@
 import React from "react";
 import "./style.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import fiUser from "../../assets/icon/fi_users.png";
-// import { sendOrderId } from "../../features/detail/detailSlice";
-// import { useDispatch } from "react-redux";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -54,18 +51,13 @@ const DetailSection = () => {
     };
 
     try {
-      // dispatch(saveDateRent(payload));
       const res = await requestAPI.createOrder(payload, config);
-      // console.log(res);
       const orderId = res.data.id;
-      // dispatch(sendOrderId(orderId));
-      // console.log(orderId);
       navigate(`/paymentPages/${orderId}`);
     } catch (error) {
       console.log(error);
     }
   };
-  // console.log(is_disabled);
 
   return (
     <div className="container detail-wrapper">
