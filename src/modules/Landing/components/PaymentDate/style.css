@@ -1,0 +1,57 @@
+.payment-date {
+  width: 994px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px !important;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: var(--Neutral-01, #fff);
+
+  /* Shadow/High */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  position: relative;
+  left: 199px;
+  top: -62px;
+}
+
+.payment-date .detail-desc,
+.payment-date .detail-desc .detail-car,
+.payment-date .detail-desc .detail-rent {
+  display: flex;
+}
+
+.payment-date h6 {
+  margin: 0;
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.payment-date .detail-desc {
+  margin: 0;
+}
+.payment-date .detail-desc h5 {
+  margin: 0;
+  color: var(--Neutral-03, #8a8a8a);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.payment-date .detail-desc .detail-car .car-type,
+.payment-date .detail-desc .detail-car .car-cat,
+.payment-date .detail-desc .detail-rent .start-rent-car,
+.payment-date .detail-desc .detail-rent .finish-rent-car {
+  width: 240px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

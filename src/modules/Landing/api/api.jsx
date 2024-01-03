@@ -41,3 +41,11 @@ export async function createOrder(payload, config) {
   );
   return response;
 }
+
+export async function getOrder(config, id) {
+  const response = await axios.get(
+    `https://api-car-rental.binaracademy.org/customer/order/${id}`,
+    config
+  );
+  return response;
+}

@@ -5,6 +5,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import EmptyHero from "../../components/EmptyHero";
 import PaymentStep from "../../components/PaymentStep";
+import PaymentDate from "../../components/PaymentDate";
 
 const PaymentPages = () => {
   return (
@@ -12,6 +13,7 @@ const PaymentPages = () => {
       <Navigation />
       <EmptyHero />
       <PaymentStep />
+      <PaymentDate />
       <Footer />
     </div>
   );
