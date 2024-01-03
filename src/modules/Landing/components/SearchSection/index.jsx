@@ -264,17 +264,19 @@ const SearchSection = () => {
           )}
         </div>
       </div>
-      <div className={!hide ? "pagination" : " hide-element"} id="pagination">
-        <button
-          disabled={!slicey.a ? true : false}
-          onClick={() => handlePrev(slicey.a, slicey.b)}>
-          &lt;
-        </button>
-        <button
-          disabled={listcarnew.length < 3 ? true : false}
-          onClick={() => handleNext(slicey.a, slicey.b)}>
-          &gt;
-        </button>
+      <div className="page">
+        <div className={!hide ? "pagination" : " hide-element"} id="pagination">
+          <button
+            disabled={!slicey.a ? true : false}
+            onClick={() => handlePrev(slicey.a, slicey.b)}>
+            &lt;
+          </button>
+          <button
+            disabled={listcarnew.length < 3 ? true : false}
+            onClick={() => handleNext(slicey.a, slicey.b)}>
+            &gt;
+          </button>
+        </div>
       </div>
       <div id="myModal" className={!hide ? "modal" : "hide-element"}></div>
     </div>

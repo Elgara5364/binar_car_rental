@@ -68,12 +68,22 @@
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /*142.857%*/
   padding: 8px 12px !important ;
   box-sizing: border-box;
   text-decoration: none;
   border-radius: 2px;
   border: none;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+}
+
+.register .sign-page button:hover {
+  background-color: #041665;
 }
 
 .register .sign-page a {
@@ -86,6 +96,7 @@ h6 {
 }
 
 .register .sign-page .login-area span {
+  cursor: pointer;
   color: #0d28a6;
   font-size: 14px;
   font-weight: 700 !important;

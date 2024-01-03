@@ -23,6 +23,15 @@
   color: white !important;
   padding: 8px 12px !important;
   border-radius: 2px;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.offcanvas-body .nav-register:hover {
+  background-color: #408042;
 }
 
 .navbar .navbar-toggler,
@@ -43,6 +52,22 @@
 
 .nav-link {
   gap: 20px;
+}
+
+.navbar .nav-bar {
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.navbar .nav-bar:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .nav-link a {

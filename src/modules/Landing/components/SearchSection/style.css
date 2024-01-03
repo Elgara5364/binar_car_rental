@@ -194,14 +194,27 @@
   font-weight: 500;
   border-radius: 2px;
   border: none;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
+.rectangle .listcar-btn:hover,
+.rectangle .pagination button:hover {
+  background-color: #39753b;
+}
+
+.rectangle .page {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
 .rectangle .pagination {
-  padding-left: 480px !important;
   display: flex;
   gap: 20px;
   position: absolute;
-  left: 195px;
   bottom: -90px;
 }
 
@@ -212,10 +225,11 @@
   border-radius: 100px;
   width: 35px;
   height: 35px;
-}
-
-.rectangle .pagination button:active {
-  background-color: #64d6e7;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
 .rectangle .pagination button:disabled {

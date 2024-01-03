@@ -102,7 +102,7 @@ const SignIn = (props) => {
               </div>
               <h6 className="text-center">
                 Don't have an account?
-                <span onClick={handleSignUp}>Sign Up for free</span>
+                <span onClick={handleSignUp}> Sign Up for free</span>
               </h6>
             </div>
             <div className="bg col-6">
