@@ -39,29 +39,31 @@ const PaymentDate = () => {
   };
 
   return (
-    <div className="payment-date">
-      <div className="detail-payment">
-        <h6>Detail Pesananmu</h6>
-      </div>
-      <div className="detail-desc">
-        <div className="detail-car">
-          <div className="car-type">
-            <h6>Nama / Tipe Mobil</h6>
-            <h5>{detail.name}</h5>
-          </div>
-          <div className="car-cat">
-            <h6>Kategori</h6>
-            <h5>{detail.category}</h5>
-          </div>
+    <div className="payment-date mx-auto">
+      <div className="container">
+        <div className="detail-payment">
+          <h6>Detail Pesananmu</h6>
         </div>
-        <div className="detail-rent">
-          <div className="start-rent-car">
-            <h6>Tanggal Mulai Sewa</h6>
-            <h5>{state.start_date}</h5>
+        <div className="detail-desc">
+          <div className="detail-car">
+            <div className="car-type">
+              <h6>Nama / Tipe Mobil</h6>
+              <h5>{detail.name}</h5>
+            </div>
+            <div className="car-cat">
+              <h6>Kategori</h6>
+              <h5>{detail.category}</h5>
+            </div>
           </div>
-          <div className="finish-rent-car">
-            <h6>finish_rent_at</h6>
-            <h5>{state.end_date}</h5>
+          <div className="detail-rent">
+            <div className="start-rent-car">
+              <h6>Tanggal Mulai Sewa</h6>
+              <h5>{state.start_date}</h5>
+            </div>
+            <div className="finish-rent-car">
+              <h6>finish_rent_at</h6>
+              <h5>{state.end_date}</h5>
+            </div>
           </div>
         </div>
       </div>

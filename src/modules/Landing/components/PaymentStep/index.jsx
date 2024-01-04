@@ -11,25 +11,27 @@ const PaymentStep = () => {
   };
 
   return (
-    <div className="payment-step ">
-      <div className="left-side">
-        <img className="back" src={backArrow} alt="" onClick={handleBack} />
-        <h6>Pembayaran</h6>
-      </div>
-      <div className="right-side">
-        <div className="step-1">
-          <h6 className="number">1</h6>
-          <h6>Pilih Metode</h6>
-          <img src={Rectangle} alt="" />
+    <div className="payment-step mx-auto">
+      <div className="container">
+        <div className="left-side">
+          <img className="back" src={backArrow} alt="" onClick={handleBack} />
+          <h6>Pembayaran</h6>
         </div>
-        <div className="step-2">
-          <h6 className="number">2</h6>
-          <h6>Bayar</h6>
-          <img src={Rectangle} alt="" />
-        </div>
-        <div className="step-3">
-          <h6 className="number">3</h6>
-          <h6>Tiket</h6>
+        <div className="right-side">
+          <div className="step-1">
+            <h6 className="number">1</h6>
+            <h6>Pilih Metode</h6>
+            <img src={Rectangle} alt="" />
+          </div>
+          <div className="step-2">
+            <h6 className="number">2</h6>
+            <h6>Bayar</h6>
+            <img src={Rectangle} alt="" />
+          </div>
+          <div className="step-3">
+            <h6 className="number">3</h6>
+            <h6>Tiket</h6>
+          </div>
         </div>
       </div>
     </div>
