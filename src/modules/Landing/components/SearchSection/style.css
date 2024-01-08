@@ -112,6 +112,7 @@
   border-radius: 2px;
   border: 1px solid var(--Neutral-02, #d0d0d0);
   background-color: var(--Neutral-02, #d0d0d0);
+  cursor: default;
 }
 
 .listcar-wrapper {

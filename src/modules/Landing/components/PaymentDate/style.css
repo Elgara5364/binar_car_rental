@@ -1,6 +1,3 @@
-.payment-date {
-}
-
 .payment-date .container {
   width: 1018px;
   height: auto;
@@ -56,4 +53,17 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+@media screen and (max-width: 430px) {
+  .payment-date .container {
+    display: block;
+    width: auto;
+  }
+
+  .payment-date .container .detail-desc,
+  .payment-date .container .detail-desc .detail-car,
+  .payment-date .container .detail-desc .detail-rent {
+    display: block;
+  }
 }

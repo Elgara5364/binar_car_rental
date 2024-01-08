@@ -63,3 +63,15 @@
   align-items: center;
 }
 /* RIGHT-SIDE END  */
+@media screen and (max-width: 430px) {
+  .payment-step .container {
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .payment-step .container .left-side h6,
+  .payment-step .container .left-side img {
+    display: none;
+  }
+}

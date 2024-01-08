@@ -1,0 +1,290 @@
+.payment-choose-bank {
+  width: 1018px;
+  display: flex;
+  gap: 32px;
+}
+
+.payment-choose-bank .left-side {
+  width: 629px;
+  padding: 24px 26px;
+  box-sizing: border-box;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+
+  border-radius: 8px;
+  background: var(--Neutral-01, #fff);
+
+  /* Shadow/Low */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* TOP SIDE START  */
+.payment-choose-bank .top-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-choose-bank .top-side h4 {
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  margin-bottom: 0;
+}
+
+.payment-choose-bank p {
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+/* TOP SIDE END  */
+
+/* BOTTOM SIDE START  */
+
+.payment-choose-bank .bottom-side .bank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.payment-choose-bank .bottom-side .frame {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.payment-choose-bank .bottom-side .bank {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  /* border-bottom: 1px solid #eee; */
+}
+
+.payment-choose-bank .bottom-side .bank:hover {
+  transition: 0.25s ease;
+  cursor: pointer;
+  background-color: #dfdfdf4e;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  -webkit-transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  -ms-transition: 0.25s ease;
+  -o-transition: 0.25s ease;
+}
+
+.payment-choose-bank .bottom-side .bank .name {
+  display: flex;
+  width: 61px;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Neutral-01, #fff);
+
+  /* Shadow/Low */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.payment-choose-bank .bottom-side h3 {
+  margin-bottom: 0;
+  padding: 6px 16px;
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+}
+.payment-choose-bank .bottom-side p {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* BOTTOM SIDE END  */
+
+/* RIGHT SIDE START  */
+.payment-choose-bank .right-side {
+  width: 405px;
+  height: auto;
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--Neutral-01, #fff);
+
+  /* Shadow/Low */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.payment-choose-bank .right-side .car-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 49px;
+}
+
+.payment-choose-bank .right-side .short-detail {
+  margin-bottom: 18px;
+}
+
+.payment-choose-bank .right-side h4,
+.payment-choose-bank .right-side h5,
+.payment-choose-bank .right-side h6,
+.payment-choose-bank .right-side ul {
+  margin-bottom: 0;
+}
+
+.payment-choose-bank .right-side li,
+.payment-choose-bank .right-side h5 {
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+}
+
+.payment-choose-bank .right-side li,
+.payment-choose-bank .right-side .list h5 {
+  font-weight: 400;
+}
+.payment-choose-bank .right-side h6 {
+  color: var(--Neutral-03, #8a8a8a);
+  font-family: Arial;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 140% */
+}
+
+.payment-choose-bank .right-side .short-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-choose-bank .right-side .short-detail div {
+  display: flex;
+  gap: 20px;
+}
+
+.payment-choose-bank .right-side .short-detail div img {
+  cursor: pointer;
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
+}
+
+.payment-choose-bank .right-side .short-detail div .show {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+.payment-choose-bank .right-side .hide {
+  display: none;
+}
+
+.payment-choose-bank .right-side .total-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: auto;
+}
+
+.payment-choose-bank .right-side .total-detail .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.payment-choose-bank .right-side .total-detail .list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-choose-bank .right-side .total-detail ul {
+  flex-direction: column;
+  display: flex;
+  gap: 8px;
+}
+
+.payment-choose-bank .right-side .total-detail .list .include {
+  color: var(--Primary-LimeGreen-04, #5cb85f);
+}
+
+.payment-choose-bank .right-side .total-detail .line1 {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.payment-choose-bank .right-side .total {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-choose-bank .right-side .button {
+  cursor: pointer;
+  text-align: center;
+  width: 358px;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  background: var(--Primary-LimeGreen-04, #5cb85f);
+  transition: 0.3s ease;
+  color: var(--Neutral-01, #fff);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  /*142.857%*/
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+.payment-choose-bank .right-side .disabled {
+  cursor: default;
+  background: var(--Primary-LimeGreen-04, #5cb85f4e);
+  text-align: center;
+  width: 358px;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+}
+
+.payment-choose-bank .right-side .button:hover {
+  background-color: #458c47;
+}
+
+/* RIGHT SIDE END  */
+
+@media screen and (max-width: 430px) {
+  .payment-choose-bank {
+    display: block;
+    width: auto;
+  }
+
+  .payment-choose-bank .left-side,
+  .payment-choose-bank .right-side {
+    width: auto;
+  }
+}

@@ -8,6 +8,7 @@ const initialState = {
   is_disabled: false,
   loading: false,
   id: "",
+  day_rent: null,
 };
 
 export const detailSlice = createSlice({
@@ -28,6 +29,7 @@ export const detailSlice = createSlice({
       state.end_date = action.payload.end_date;
       state.start_rent_at = action.payload.start_rent_at;
       state.finish_rent_at = action.payload.finish_rent_at;
+      state.day_rent = action.payload.day_rent + 1;
     },
     resetDateRent: (state) => {
       (state.start_rent_at = ""),

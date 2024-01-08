@@ -43,6 +43,7 @@ const Calendars = () => {
         end_date: endDate.toLocaleDateString("en-UK", options),
         start_rent_at: startDate.toLocaleDateString("en-CA", options2),
         finish_rent_at: endDate.toLocaleDateString("en-CA", options2),
+        day_rent: dayDiff,
       };
       // console.log(payload);
       dispatch(saveDateRent(payload));
