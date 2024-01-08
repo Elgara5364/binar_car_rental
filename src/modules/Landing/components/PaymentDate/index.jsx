@@ -7,7 +7,7 @@ import * as requestAPI from "../../api/api";
 const PaymentDate = () => {
   const { id } = useParams();
   const state = useSelector((state) => state.detail);
-  console.log(state);
+  // console.log(state);
   const [detail, setDetail] = useState({
     name: "",
     category: "",

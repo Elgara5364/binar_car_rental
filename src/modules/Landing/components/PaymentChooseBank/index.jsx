@@ -4,8 +4,9 @@ import rectangle27 from "../../assets/shape/Rectangle 27.png";
 import arrowUp from "../../assets/icon/fi_chevron-up.png";
 import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import check from "../../assets/icon/fi_check.png";
+import { setStep } from "../../features/payment/paymentSlice";
 
 const PaymentChooseBank = (props) => {
   const [showDetail, setShowDetail] = useState(false);
@@ -64,6 +65,11 @@ const PaymentChooseBank = (props) => {
 
   const show = () => {
     setShowDetail(!showDetail);
+  };
+
+  const dispatch = useDispatch();
+  const continueStep = () => {
+    dispatch(setStep());
   };
 
   // console.log(props.data);
@@ -164,7 +170,8 @@ const PaymentChooseBank = (props) => {
         </div>
         <div
           disabled={data.bank ? true : false}
-          className={data.bank ? "button" : "disabled"}>
+          className={data.bank ? "button" : "disabled"}
+          onClick={continueStep}>
           Bayar
         </div>
       </div>

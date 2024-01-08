@@ -29,6 +29,11 @@
   font-weight: 400;
   line-height: 14px; /* 140% */
 }
+
+.payment-step .complete {
+  background-color: #0d28a6;
+  color: white;
+}
 .payment-step h6 {
   font-family: Arial;
   font-size: 12px !important;
