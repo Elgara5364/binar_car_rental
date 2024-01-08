@@ -62,7 +62,7 @@
 }
 .payment-choose-bank .bottom-side .bank {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
   align-items: center;
   /* border-bottom: 1px solid #eee; */
 }
@@ -80,6 +80,12 @@
   -moz-transition: 0.25s ease;
   -ms-transition: 0.25s ease;
   -o-transition: 0.25s ease;
+}
+
+.payment-choose-bank .bottom-side .bank .bank-detail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .payment-choose-bank .bottom-side .bank .name {
@@ -110,11 +116,18 @@
   line-height: 20px;
 }
 
+.payment-choose-bank .bottom-side .bank .show {
+  display: block;
+}
+.payment-choose-bank .bottom-side .bank .hide {
+  display: none;
+}
+
 /* BOTTOM SIDE END  */
 
 /* RIGHT SIDE START  */
 .payment-choose-bank .right-side {
-  width: 405px;
+  width: 380px;
   height: auto;
   padding: 24px;
   border-radius: 8px;
@@ -239,7 +252,7 @@
 .payment-choose-bank .right-side .button {
   cursor: pointer;
   text-align: center;
-  width: 358px;
+  width: 100%;
   padding: 8px 12px;
   justify-content: center;
   align-items: center;
@@ -263,7 +276,7 @@
   cursor: default;
   background: var(--Primary-LimeGreen-04, #5cb85f4e);
   text-align: center;
-  width: 358px;
+  width: 100%;
   padding: 8px 12px;
   justify-content: center;
   align-items: center;

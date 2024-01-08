@@ -5,6 +5,7 @@ import arrowUp from "../../assets/icon/fi_chevron-up.png";
 import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import { useSelector } from "react-redux";
+import check from "../../assets/icon/fi_check.png";
 
 const PaymentChooseBank = (props) => {
   const [showDetail, setShowDetail] = useState(false);
@@ -16,8 +17,9 @@ const PaymentChooseBank = (props) => {
     total_price: null,
     bank: "",
   });
-  console.log(data.price);
-  console.log(data.total_price);
+
+  // console.log(data.bank);
+  // console.log(data.total_price);
   const state = useSelector((state) => state.detail);
   // console.log(data);
 
@@ -63,6 +65,7 @@ const PaymentChooseBank = (props) => {
   const show = () => {
     setShowDetail(!showDetail);
   };
+
   // console.log(props.data);
   return (
     <div className="payment-choose-bank mx-auto">
@@ -75,17 +78,27 @@ const PaymentChooseBank = (props) => {
           </p>
         </div>
         <div className="bottom-side">
-          <div className="bank-list">
+          <div className="bank-list" id="bank_list">
             {props.data.map((bankDetail, index) => (
               <div className="frame">
                 <div
+                  name={bankDetail.name}
                   key={index}
                   className="bank"
                   onClick={() => chooseBank(bankDetail.name)}>
-                  <div className="name">
-                    <h3>{bankDetail.name}</h3>
+                  <div className="bank-detail">
+                    <div className="name">
+                      <h3>{bankDetail.name}</h3>
+                    </div>
+                    <p>{bankDetail.desc}</p>
                   </div>
-                  <p>{bankDetail.desc}</p>
+                  {data.bank == bankDetail.name ? (
+                    <img
+                      src={check}
+                      alt=""
+                      className={data.bank ? "show" : "hide"}
+                    />
+                  ) : null}
                 </div>
                 <img src={rectangle27} alt="" />
               </div>
