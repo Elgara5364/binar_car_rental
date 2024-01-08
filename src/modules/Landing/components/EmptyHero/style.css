@@ -10,6 +10,11 @@
   height: 200px;
 }
 
+.less-height {
+  background-color: #f1f3ff;
+  height: 120px;
+}
+
 @media (max-width: 576px) {
   .hero {
     height: 700px;
