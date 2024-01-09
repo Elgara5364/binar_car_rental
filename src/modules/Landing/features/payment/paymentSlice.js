@@ -4,6 +4,7 @@ const initialState = {
   step: 1,
   isSelectedBank: false,
   bank_selection: "",
+  index: null,
 };
 
 export const paymentSlice = createSlice({
@@ -27,6 +28,7 @@ export const paymentSlice = createSlice({
     },
     setBankSelection: (state, action) => {
       state.bank_selection = action.payload.bank_selection;
+      state.index = action.payload.index;
     },
     delBankSelection: (state) => {
       state.bank_selection = "";

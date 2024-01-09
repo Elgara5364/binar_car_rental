@@ -13,9 +13,10 @@ import {
 } from "../../features/payment/paymentSlice";
 
 const PaymentChooseBank = (props) => {
+  const dispatch = useDispatch();
   const [showDetail, setShowDetail] = useState(false);
   const statepayment = useSelector((state) => state.payment);
-  console.log(statepayment);
+  // console.log(statepayment);
   const [data, setData] = useState({
     name: "",
     category: "",
@@ -23,9 +24,10 @@ const PaymentChooseBank = (props) => {
     price: null,
     total_price: null,
     bank: statepayment.bank_selection,
+    no_bank: null,
   });
 
-  console.log(data.bank);
+  // console.log(data.no_bank);
   // console.log(data.total_price);
   const state = useSelector((state) => state.detail);
   // console.log(data);
@@ -34,10 +36,12 @@ const PaymentChooseBank = (props) => {
     getOrder();
   }, [data.bank]);
 
-  const chooseBank = (bankName) => {
+  const chooseBank = (bankName, index) => {
+    // console.log(index);
     setData({
       ...data,
       bank: bankName,
+      no_bank: index,
     });
   };
 
@@ -73,12 +77,12 @@ const PaymentChooseBank = (props) => {
     setShowDetail(!showDetail);
   };
 
-  const dispatch = useDispatch();
   const continueStep = () => {
     dispatch(addStep());
     dispatch(setSelectedBank());
     const payload = {
       bank_selection: data.bank,
+      index: data.no_bank,
     };
     dispatch(setBankSelection(payload));
   };
@@ -102,7 +106,7 @@ const PaymentChooseBank = (props) => {
                   name={bankDetail.name}
                   key={index}
                   className="bank"
-                  onClick={() => chooseBank(bankDetail.name)}>
+                  onClick={() => chooseBank(bankDetail.name, index)}>
                   <div className="bank-detail">
                     <div className="name">
                       <h3>{bankDetail.name}</h3>

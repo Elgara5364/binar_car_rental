@@ -11,11 +11,15 @@ import {
   delStep,
   addStep,
 } from "../../features/payment/paymentSlice";
+import { useParams } from "react-router-dom";
 
 const PaymentStep = (props) => {
-  const navigate = useNavigate();
+  const { id } = useParams();
   const state = useSelector((state) => state.payment);
-  console.log(state);
+  // console.log(state.index);
+  // console.log(props.data[state.index].desc);
+  const navigate = useNavigate();
+  // console.log(state);
   const dispatch = useDispatch();
   const handleBack = () => {
     dispatch(disableButton());
@@ -33,7 +37,14 @@ const PaymentStep = (props) => {
       <div className={state.step == 1 ? "container" : "less-height-container"}>
         <div className="left-side">
           <img className="back" src={backArrow} alt="" onClick={handleBack} />
-          {state.step == 1 ? <h6>Pembayaran</h6> : <h6>{props.data.name}</h6>}
+          {state.step == 1 ? (
+            <h6>Pembayaran</h6>
+          ) : (
+            <div>
+              <h6>{props.data[state.index].desc}</h6>
+              <h6>Order ID : {id}</h6>
+            </div>
+          )}
         </div>
         <div className="right-side">
           <div className="step-1">
