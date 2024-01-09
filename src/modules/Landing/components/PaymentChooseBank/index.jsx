@@ -6,20 +6,26 @@ import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import { useDispatch, useSelector } from "react-redux";
 import check from "../../assets/icon/fi_check.png";
-import { setStep } from "../../features/payment/paymentSlice";
+import {
+  setBankSelection,
+  setSelectedBank,
+  addStep,
+} from "../../features/payment/paymentSlice";
 
 const PaymentChooseBank = (props) => {
   const [showDetail, setShowDetail] = useState(false);
+  const statepayment = useSelector((state) => state.payment);
+  console.log(statepayment);
   const [data, setData] = useState({
     name: "",
     category: "",
     dayRent: null,
     price: null,
     total_price: null,
-    bank: "",
+    bank: statepayment.bank_selection,
   });
 
-  // console.log(data.bank);
+  console.log(data.bank);
   // console.log(data.total_price);
   const state = useSelector((state) => state.detail);
   // console.log(data);
@@ -69,7 +75,12 @@ const PaymentChooseBank = (props) => {
 
   const dispatch = useDispatch();
   const continueStep = () => {
-    dispatch(setStep());
+    dispatch(addStep());
+    dispatch(setSelectedBank());
+    const payload = {
+      bank_selection: data.bank,
+    };
+    dispatch(setBankSelection(payload));
   };
 
   // console.log(props.data);

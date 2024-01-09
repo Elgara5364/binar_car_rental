@@ -3,23 +3,37 @@ import "./style.css";
 import backArrow from "../../assets/icon/fi_arrow-left.png";
 import Rectangle from "../../assets/shape/Rectangle 36.png";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { disableButton } from "../../features/detail/detailSlice";
+import {
+  delBankSelection,
+  delSelectedBank,
+  delStep,
+  addStep,
+} from "../../features/payment/paymentSlice";
 
-const PaymentStep = () => {
+const PaymentStep = (props) => {
   const navigate = useNavigate();
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   const state = useSelector((state) => state.payment);
   console.log(state);
+  const dispatch = useDispatch();
+  const handleBack = () => {
+    dispatch(disableButton());
+    dispatch(delSelectedBank());
+    dispatch(delStep());
+    if (state.step <= 1) {
+      dispatch(addStep());
+      dispatch(delBankSelection());
+      navigate(-1);
+    }
+  };
 
   return (
     <div className="payment-step mx-auto">
-      <div className="container">
+      <div className={state.step == 1 ? "container" : "less-height-container"}>
         <div className="left-side">
           <img className="back" src={backArrow} alt="" onClick={handleBack} />
-          <h6>Pembayaran</h6>
+          {state.step == 1 ? <h6>Pembayaran</h6> : <h6>{props.data.name}</h6>}
         </div>
         <div className="right-side">
           <div className="step-1">

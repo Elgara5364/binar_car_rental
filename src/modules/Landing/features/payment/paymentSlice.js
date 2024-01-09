@@ -2,18 +2,46 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   step: 1,
+  isSelectedBank: false,
+  bank_selection: "",
 };
 
 export const paymentSlice = createSlice({
   name: "payment",
   initialState,
   reducers: {
-    setStep: (state) => {
+    addStep: (state) => {
       state.step += 1;
+    },
+    delStep: (state) => {
+      state.step -= 1;
+    },
+    resetStep: (state) => {
+      state.step == 1;
+    },
+    setSelectedBank: (state) => {
+      state.isSelectedBank = true;
+    },
+    delSelectedBank: (state) => {
+      state.isSelectedBank = false;
+    },
+    setBankSelection: (state, action) => {
+      state.bank_selection = action.payload.bank_selection;
+    },
+    delBankSelection: (state) => {
+      state.bank_selection = "";
     },
   },
 });
 
-export const { setStep } = paymentSlice.actions;
+export const {
+  addStep,
+  delStep,
+  resetStep,
+  setSelectedBank,
+  delSelectedBank,
+  setBankSelection,
+  delBankSelection,
+} = paymentSlice.actions;
 
 export default paymentSlice.reducer;

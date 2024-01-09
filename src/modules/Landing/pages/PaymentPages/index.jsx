@@ -7,8 +7,11 @@ import EmptyHero from "../../components/EmptyHero";
 import PaymentStep from "../../components/PaymentStep";
 import PaymentDate from "../../components/PaymentDate";
 import PaymentChooseBank from "../../components/PaymentChooseBank";
+import { useSelector } from "react-redux";
+import PaymentConfirmation from "../../components/PaymentConfirmation";
 
 const PaymentPages = () => {
+  const state = useSelector((state) => state.payment);
   const bankDetail = [
     {
       name: "BCA",
@@ -28,9 +31,17 @@ const PaymentPages = () => {
     <div>
       <Navigation />
       <EmptyHero />
-      <PaymentStep />
-      <PaymentDate />
-      <PaymentChooseBank data={bankDetail} />
+      {!state.isSelectedBank ? (
+        <PaymentStep data={bankDetail} />
+      ) : (
+        <PaymentStep data={bankDetail} />
+      )}
+      {!state.isSelectedBank || state.step == 1 ? <PaymentDate /> : null}
+      {!state.isSelectedBank || state.step == 1 ? (
+        <PaymentChooseBank data={bankDetail} />
+      ) : (
+        <PaymentConfirmation />
+      )}
       <Footer />
     </div>
   );
