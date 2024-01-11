@@ -1,26 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
-import sideImg from "../../assets/image/landing-page-desktop.png";
+import classNames from "classnames";
+
 import { useDispatch, useSelector } from "react-redux";
-import { isLoading } from "../../features/detail/detailSlice";
+import {
+  disableButton,
+  enableButton,
+  isLoading,
+} from "../../features/detail/detailSlice";
 
 const SignIn = (props) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const state = useSelector((state) => state.detail);
+  const { loading } = useSelector((state) => state.detail);
   const [form, setForm] = useState({
     email: "",
     password: "",
+  });
+
+  const className = classNames({
+    //nama class : condition
+    disabled: !state.is_disabled,
+    disabled_loading: loading,
+    null: state.is_disabled,
   });
 
   const handleSignUp = () => {
     props.func(true);
   };
 
+  useEffect(() => {
+    if (!form.email && !form.password) {
+      dispatch(disableButton());
+    }
+  }, [state.is_disabled, form.email, form.password]);
+
   const handleChange = (e) => {
     // console.log(e.target);
+    dispatch(enableButton());
     const { name, value } = e.target;
     setForm({
       ...form,
@@ -30,12 +52,9 @@ const SignIn = (props) => {
 
   // console.log(form);
 
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.detail);
-  const navigate = useNavigate();
-
   const handleSubmit = async () => {
     dispatch(isLoading());
+
     const token = localStorage.getItem("access_token");
 
     const config = () => {
@@ -47,31 +66,31 @@ const SignIn = (props) => {
     try {
       const res = await requestAPI.authLogin(form, config);
       localStorage.setItem("access_token", res.data.access_token);
-      // console.log(res);
       dispatch(isLoading());
       alert("Login Berhasil");
-      navigate(-1);
+      navigate(-1); //go to previous page
     } catch (error) {
+      dispatch(isLoading());
+
       if (!form.email.length) {
         alert("email tidak boleh kosong");
       } else if (!form.password.length) {
         alert("password tidak boleh kosong");
       } else if (form.email.length) {
-        alert(err.response.data.message);
+        alert(error.response.data.message);
       } else if (form.password.length) {
-        alert(err.response.data.message);
+        alert(error.response.data.message);
       }
       // console.log(err.response);
-      dispatch(isLoading());
     }
   };
 
   return (
-    <div className="register mx-auto">
+    <div className="register ">
       <div className="sign-page ">
         <div className="container-fluid">
-          <div className="row">
-            <div className="login-area col " xs={12}>
+          <div className="row ">
+            <div className="login-area col-xl-6 " xs={12}>
               <div className="btn">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
@@ -108,23 +127,19 @@ const SignIn = (props) => {
               <div>
                 <button
                   onClick={handleSubmit}
-                  className={loading ? "disabled" : null}>
-                  {" "}
+                  disabled={!state.is_disabled}
+                  className={className}>
                   Sign in
                 </button>
               </div>
               <h6 className="text-center">
                 Don't have an account?
-                <span onClick={handleSignUp}> Sign Up for free</span>
+                <span onClick={handleSignUp}>Sign Up for free</span>
               </h6>
             </div>
-            <div className="bg col-6">
-              <h1>Binar Car Rental</h1>
-              <div className="side-img">
-                <div className="img">
-                  <img src={sideImg} alt="" />
-                </div>
-              </div>
+            <div className="bg col-xl-6">
+              <h1 className="ms-5">Binar Car Rental</h1>
+              <div className="img ms-5"></div>
             </div>
           </div>
         </div>
