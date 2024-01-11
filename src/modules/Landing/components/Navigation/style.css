@@ -10,7 +10,9 @@
 }
 
 .navbar .container {
-  width: 1168px;
+  margin-left: 9%;
+  width: 83%;
+  padding: 0 !important;
 }
 
 .navbar-nav {
@@ -86,9 +88,15 @@
   line-height: 20px;
 }
 
-@media (max-width: 576px) {
-  .container {
-    padding: 0px 16px !important;
+@media (max-width: 800px) {
+  .navbar {
+    padding: 24px 16px !important;
+  }
+  .navbar .container {
+    width: 100%;
+    margin-left: -5px;
+
+    /* padding: 0px 16px !important; */
   }
 
   .navbar-nav {
