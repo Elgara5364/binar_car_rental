@@ -64,6 +64,10 @@
 }
 
 @media (max-width: 576px) {
+  .faq {
+    padding-top: 100px;
+  }
+
   .faq .title-container {
     width: 100%;
   }
