@@ -1,22 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
-import sideImg from "../../assets/image/landing-page-desktop.png";
 import { useDispatch, useSelector } from "react-redux";
-import { isLoading } from "../../features/detail/detailSlice";
+import {
+  disableButton,
+  enableButton,
+  isLoading,
+} from "../../features/detail/detailSlice";
+import classNames from "classnames";
 
 const SignUp = (props) => {
+  const state = useSelector((state) => state.detail);
+  const { loading } = useSelector((state) => state.detail);
+
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
   });
 
+  const className = classNames({
+    //nama class : condition
+    disabled: !state.is_disabled,
+    disabled_loading: loading,
+    null: state.is_disabled,
+  });
+
   const handleChange = (e) => {
-    // console.log(e.target);
+    dispatch(enableButton());
     const { name, value } = e.target;
     setForm({
       ...form,
@@ -24,27 +37,25 @@ const SignUp = (props) => {
     });
   };
 
-  // console.log(props.func);
+  useEffect(() => {
+    if (!form.name && !form.email && !form.password) {
+      dispatch(disableButton());
+    }
+  }, [state.is_disabled, form.name, form.email, form.password]);
 
   const handleSignIn = () => {
     props.func(false);
-    // console.log(props.func());
   };
 
-  // console.log(form);
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.detail);
-  const navigate = useNavigate();
   const handleSubmit = async () => {
     dispatch(isLoading());
-    // const token = localStorage.getItem("access_token");
     try {
       const res = await requestAPI.register(form);
-      // const token = localStorage.setItem("acces_token", res.data.access_token);
-      dispatch(isLoading());
       alert("Register Berhasil Berhasil");
-      navigate(-1);
+      dispatch(isLoading());
+      props.func(false); // sign in component will show
     } catch (error) {
+      dispatch(isLoading());
       if (!form.name.length) {
         alert("Nama tidak boleh kosong");
       } else if (!form.email.length) {
@@ -56,7 +67,6 @@ const SignUp = (props) => {
       } else if (form.password.length) {
         alert(error.response.data.error.message);
       }
-      dispatch(isLoading());
     }
   };
 
@@ -66,50 +76,50 @@ const SignUp = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="login-area col-xl-6 ">
-              <div className="btn">
+              <div className="logo-register">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
                 </a>
               </div>
               <h1 className="title">Sign Up</h1>
-              <div class="mb-2  ">
-                <label class="form-label">Name*</label>
+              <div className="mb-2  ">
+                <label className="form-label">Name*</label>
                 <input
                   onChange={handleChange}
                   name="name"
                   type="name"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Nama Lengkap"
                 />
               </div>
-              <div class="mb-2  ">
-                <label class="form-label">Email*</label>
+              <div className="mb-2  ">
+                <label className="form-label">Email*</label>
                 <input
                   onChange={handleChange}
                   type="email"
                   name="email"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Contoh: johndee@gmail.com"
                 />
               </div>
               <div>
-                <label class="form-label">Create Password*</label>
+                <label className="form-label">Create Password*</label>
                 <input
                   onChange={handleChange}
                   name="password"
                   type="password"
                   id="inputPassword5"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="passwordHelpBlock"
                   placeholder="6+ Karakter"
                 />
               </div>
               <button
                 onClick={handleSubmit}
-                className={loading ? "disabled" : null}>
-                {" "}
+                disabled={!state.is_disabled}
+                className={className}>
                 Sign Up
               </button>
               <h6 className="text-center">
@@ -118,12 +128,8 @@ const SignUp = (props) => {
               </h6>
             </div>
             <div className="bg col-xl-6">
-              <h1>Binar Car Rental</h1>
-              <div className="side-img">
-                <div className="img">
-                  <img src={sideImg} alt="" />
-                </div>
-              </div>
+              <h1 className="ms-5">Binar Car Rental</h1>
+              <div className="img ms-5"></div>
             </div>
           </div>
         </div>
