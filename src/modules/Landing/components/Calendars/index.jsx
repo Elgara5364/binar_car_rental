@@ -60,6 +60,10 @@ const Calendars = () => {
   };
 
   // const state = useSelector((state) => state.detail);
+
+  const dateToday = new Date();
+  console.log(dateToday);
+
   useEffect(() => {
     handleGetDateRent();
     if (dayDiff > 7) {

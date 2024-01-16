@@ -63,7 +63,7 @@ const Navigation = () => {
                 <a
                   onClick={handleLogout}
                   className="nav-register"
-                  href="/register">
+                  href={`${"/search" ? "" : "/register"}`}>
                   Logout
                 </a>
               )}
