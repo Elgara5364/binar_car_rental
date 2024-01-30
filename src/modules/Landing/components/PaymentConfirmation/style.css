@@ -1,0 +1,187 @@
+.payment-confirmation {
+  width: 1042px;
+  margin: 40px auto 0;
+}
+
+.payment-confirmation .grid-container {
+  display: grid;
+  grid-template-columns: 605px 405px;
+  column-gap: 32px;
+  row-gap: 24px;
+}
+
+.payment-confirmation .payment-countdown,
+.payment-confirmation .no-rek,
+.payment-confirmation .payment-instruction,
+.payment-confirmation .confirmation {
+  border-radius: 8px;
+  background: var(--Neutral-01, #fff);
+
+  /* Shadow/Low */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.payment-confirmation .payment-countdown {
+  height: 96px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  row-gap: 6px;
+  padding: 24px;
+}
+
+.payment-confirmation h6 {
+  margin-bottom: 0;
+}
+
+.payment-confirmation h5,
+.payment-confirmation h6 {
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+}
+
+.payment-confirmation .payment-countdown h6 {
+  font-weight: 400 !important;
+}
+
+.payment-confirmation .payment-countdown .countdown {
+  height: auto;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding: 9px 0;
+  text-align: center;
+}
+
+.payment-confirmation .no-rek {
+  height: auto;
+  padding: 24px;
+  display: grid;
+  row-gap: 16px;
+}
+
+.payment-confirmation .no-rek .information {
+  display: grid;
+  grid-column: 61px 219px;
+  column-gap: 16px;
+}
+
+.payment-confirmation .no-rek .information .info1 {
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 4px;
+  border: 1px solid var(--Neutral-02, #d0d0d0);
+  background: var(--Neutral-01, #fff);
+}
+.payment-confirmation .no-rek .information .info2 {
+  padding: 6px 0;
+  display: inline-grid;
+  grid-row-start: 1;
+  grid-column: 2 / span 12;
+  row-gap: 4px;
+}
+
+.payment-confirmation .no-rek .information .info2 h6 {
+  font-weight: 400 !important;
+}
+
+.payment-confirmation .no-rek .number-information,
+.payment-confirmation .no-rek .total-payment {
+  display: grid;
+  row-gap: 4px;
+}
+
+.payment-confirmation .no-rek p {
+  padding: 9px 12px;
+  border-radius: 2px;
+  border: 1px solid var(--Neutral-04, #3c3c3c);
+  background: var(--Neutral-01, #fff);
+}
+
+.payment-confirmation .payment-instruction {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 370px;
+  padding: 24px;
+}
+
+.payment-confirmation .payment-instruction h5 {
+  margin-bottom: 0;
+}
+
+.payment-confirmation .payment-instruction .method-pay {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-top: 8px;
+}
+
+.payment-confirmation .payment-instruction .method-pay .method {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  /* text-align: center; */
+  width: 139px;
+}
+
+.payment-confirmation .payment-instruction .method-pay .method h4 {
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  margin-bottom: 0px;
+}
+
+.payment-confirmation .payment-instruction .method-pay .method .list {
+  text-align: start;
+}
+
+.payment-confirmation .payment-instruction .list li {
+  color: var(--Neutral-03, #8a8a8a);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 175%; /* 24.5px */
+  margin-bottom: 5px;
+}
+
+.payment-confirmation .confirmation {
+  grid-template-rows: auto auto;
+  height: 170px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.payment-confirmation .confirmation h6 {
+  color: var(--Neutral-01, #000);
+  font-family: Arial;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.payment-confirmation .confirmation button {
+  color: white;
+  width: 358px;
+  padding: 8px 12px;
+  border: none;
+  text-align: center;
+  border-radius: 2px;
+  background: var(--Primary-LimeGreen-04, #5cb85f);
+}

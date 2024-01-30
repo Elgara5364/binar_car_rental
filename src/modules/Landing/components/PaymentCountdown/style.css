@@ -1,0 +1,15 @@
+.p-countdown div {
+  margin: 0 0 0 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.p-countdown h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 6px 2px;
+  border-radius: 2px;
+  background-color: #fa2c5a;
+  color: white;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import backArrow from "../../assets/icon/fi_arrow-left.png";
 import Rectangle from "../../assets/shape/Rectangle 36.png";
+import check from "../../assets/icon/fi_check_w.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { disableButton } from "../../features/detail/detailSlice";
@@ -48,7 +49,9 @@ const PaymentStep = (props) => {
         </div>
         <div className="right-side">
           <div className="step-1">
-            <h6 className="number complete">1</h6>
+            <h6 className="number complete">
+              {state.step === 2 || state.step === 3 ? <img src={check} /> : 1}
+            </h6>
             <h6>Pilih Metode</h6>
             <img src={Rectangle} alt="" />
           </div>

@@ -35,6 +35,12 @@
   line-height: 14px; /* 140% */
 }
 
+.payment-step .right-side h6 img {
+  width: 12px;
+  height: 12px;
+  margin: -3px -1px 0 0;
+}
+
 .payment-step .complete {
   background-color: #0d28a6;
   color: white;

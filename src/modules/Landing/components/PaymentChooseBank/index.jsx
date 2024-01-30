@@ -16,7 +16,7 @@ const PaymentChooseBank = (props) => {
   const dispatch = useDispatch();
   const [showDetail, setShowDetail] = useState(false);
   const statepayment = useSelector((state) => state.payment);
-  // console.log(statepayment);
+
   const [data, setData] = useState({
     name: "",
     category: "",
@@ -24,9 +24,10 @@ const PaymentChooseBank = (props) => {
     price: null,
     total_price: null,
     bank: statepayment.bank_selection,
-    no_bank: null,
+    no_bank: statepayment.index,
   });
 
+  // console.log(statepayment);
   // console.log(data.no_bank);
   // console.log(data.total_price);
   const state = useSelector((state) => state.detail);
@@ -34,7 +35,7 @@ const PaymentChooseBank = (props) => {
 
   useEffect(() => {
     getOrder();
-  }, [data.bank]);
+  }, [data.bank, data.no_bank]);
 
   const chooseBank = (bankName, index) => {
     // console.log(index);
@@ -84,8 +85,10 @@ const PaymentChooseBank = (props) => {
       bank_selection: data.bank,
       index: data.no_bank,
     };
+    // console.log(payload);
     dispatch(setBankSelection(payload));
   };
+  console.log(data.bank);
 
   // console.log(props.data);
   return (
@@ -151,7 +154,7 @@ const PaymentChooseBank = (props) => {
             <ul>
               <div className="list">
                 <li>
-                  Sewa Mobil {data.price} x {data.dayRent} hari{" "}
+                  Sewa Mobil {data.price} x {data.dayRent + 1} hari{" "}
                 </li>
                 <h5>{data.total_price}</h5>
               </div>
@@ -186,7 +189,7 @@ const PaymentChooseBank = (props) => {
         <div
           disabled={data.bank ? true : false}
           className={data.bank ? "button" : "disabled"}
-          onClick={continueStep}>
+          onClick={data.bank ? continueStep : null}>
           Bayar
         </div>
       </div>
