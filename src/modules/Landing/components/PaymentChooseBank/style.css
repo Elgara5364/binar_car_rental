@@ -243,8 +243,6 @@
 }
 
 .payment-choose-bank .right-side .total {
-  margin-top: 16px;
-  margin-bottom: 24px;
   display: flex;
   justify-content: space-between;
 }

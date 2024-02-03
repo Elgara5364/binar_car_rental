@@ -7,9 +7,11 @@ import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import fiUser from "../../assets/icon/fi_users.png";
+import FormatToIdr from "../../../utils/formatToIdr";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
+
   const { id } = useParams();
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
@@ -24,7 +26,7 @@ const DetailSection = () => {
   const handleGetList = async () => {
     try {
       const res = await requestAPI.detailCar(id);
-      // console.log(res);
+      // console.log(res.data.price);
       setCar(res.data);
     } catch (error) {
       // console.log(error);
@@ -162,7 +164,7 @@ const DetailSection = () => {
         </div>
         <div className="detail-price">
           <p>Total</p>
-          <p>{`Rp.${car.price}`}</p>
+          <p>{FormatToIdr(car.price)}</p>
         </div>
         <button
           className={is_disabled ? "btnPayment" : "disabled"}

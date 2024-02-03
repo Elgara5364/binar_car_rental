@@ -14,14 +14,13 @@ import {
   resetDateRent,
   saveDateRent,
 } from "../../features/detail/detailSlice";
+import { FormatDate1, FormatDate2 } from "../../../utils/formatDate";
 
 const Calendars = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   const [dayDiff, setDayDiff] = useState();
   const dispatch = useDispatch();
-  const options = { year: "numeric", month: "short", day: "numeric" };
-  const options2 = { year: "numeric", month: "numeric", day: "numeric" };
 
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
@@ -39,10 +38,10 @@ const Calendars = () => {
   const handleGetDateRent = () => {
     if (startDate && endDate) {
       const payload = {
-        start_date: startDate.toLocaleString("en-UK", options),
-        end_date: endDate.toLocaleDateString("en-UK", options),
-        start_rent_at: startDate.toLocaleDateString("en-CA", options2),
-        finish_rent_at: endDate.toLocaleDateString("en-CA", options2),
+        start_date: FormatDate1(startDate),
+        end_date: FormatDate1(endDate),
+        start_rent_at: FormatDate2(startDate),
+        finish_rent_at: FormatDate2(endDate),
         day_rent: dayDiff,
       };
       // console.log(payload);

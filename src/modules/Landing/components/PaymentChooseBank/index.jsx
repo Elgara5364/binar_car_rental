@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+import FormatToIdr from "../../../utils/formatToIdr";
 import rectangle27 from "../../assets/shape/Rectangle 27.png";
 import arrowUp from "../../assets/icon/fi_chevron-up.png";
 import { useParams } from "react-router-dom";
@@ -60,14 +61,8 @@ const PaymentChooseBank = (props) => {
         name: res.data.Car.name,
         category: res.data.Car.category,
         dayRent: state.day_rent,
-        price: new Intl.NumberFormat("id-ID", {
-          style: "currency",
-          currency: "IDR",
-        }).format(res.data.Car.price),
-        total_price: new Intl.NumberFormat("id-ID", {
-          style: "currency",
-          currency: "IDR",
-        }).format(res.data.total_price),
+        price: FormatToIdr(res.data.Car.price),
+        total_price: FormatToIdr(res.data.total_price),
       });
     } catch (error) {
       console.log(error);
@@ -88,7 +83,7 @@ const PaymentChooseBank = (props) => {
     // console.log(payload);
     dispatch(setBankSelection(payload));
   };
-  console.log(data.bank);
+  // console.log(data.bank);
 
   // console.log(props.data);
   return (
@@ -181,11 +176,12 @@ const PaymentChooseBank = (props) => {
             </ul>
           </div>
           <div className="line1"></div>
+          <div className="total">
+            <h5>Total</h5>
+            <h5>{data.total_price}</h5>
+          </div>
         </div>
-        <div className="total">
-          <h5>Total</h5>
-          <h5>{data.total_price}</h5>
-        </div>
+
         <div
           disabled={data.bank ? true : false}
           className={data.bank ? "button" : "disabled"}
